@@ -1,8 +1,15 @@
 @import "tailwindcss";
 
+@theme {
+  --color-navy: #1b365d;
+  --color-brand: #005a9c;
+  --color-sky: #60c1e5;
+  --color-ice: #a0e0ef;
+}
+
 :root {
-  --background: #fafafa; /* jasne tło strony */
-  --foreground: #171717;
+  --background: #ecf9fc;
+  --foreground: #1b365d;
 }
 
 @theme inline {

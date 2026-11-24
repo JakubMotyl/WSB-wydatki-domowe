@@ -20,7 +20,6 @@ export interface Expense extends ExpenseInput {
     id: number;
 }
 
-// Sprawdza, czy napis to prawdziwa data, np. "2026-02-31" jest błędna.
 function isValidDate(value: unknown): boolean {
     if (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(value))
         return false;
@@ -28,8 +27,6 @@ function isValidDate(value: unknown): boolean {
     return !isNaN(date.getTime()) && date.toISOString().slice(0, 10) === value;
 }
 
-// Zwraca { data } gdy dane są poprawne albo { errors } z komunikatami dla pól.
-// body pochodzi z JSON-a, więc jego typ jest nieznany (any).
 export function validateExpense(body: any): {
     data?: ExpenseInput;
     errors?: Record<string, string>;
@@ -66,7 +63,7 @@ export function validateExpense(body: any): {
             amount: body.amount,
             category: body.category,
             date: body.date,
-            note: body.note?.trim() || null, // pusta notatka zapisujemy jako null
+            note: body.note?.trim() || null,
         },
     };
 }
